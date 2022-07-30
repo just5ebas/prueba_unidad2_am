@@ -1,0 +1,12 @@
+2022-07-29 19:47:54.054  DEBUG DoctorRepositoryImpl:25 : Se inserto al doctor: Doctor [id=5, cedula=1231549526, nombre=Juan, apellido=Taipe, fechaNacimiento=1980-09-09T10:01, numeroConsultorio=325, codigoSenescyt=PDK-225, genero=M]
+2022-07-29 19:47:54.054  DEBUG DoctorRepositoryImpl:25 : Se inserto al doctor: Doctor [id=6, cedula=1895236548, nombre=Angelica, apellido=Toronto, fechaNacimiento=1976-04-30T19:48, numeroConsultorio=501, codigoSenescyt=PPP-555, genero=F]
+2022-07-29 19:47:54.054  DEBUG PacienteRepositoryImpl:30 : Se inserto al paciente: Paciente [id=5, cedula=1346798255, nombre=Jhon, apellido=Escala, fechaNacimiento=1996-10-02T02:22, codigoSeguro=PA005, estatura=1.76, peso=91.2, genero=M]
+2022-07-29 19:47:54.054  DEBUG PacienteRepositoryImpl:30 : Se inserto al paciente: Paciente [id=6, cedula=1715623498, nombre=Carlos, apellido=Vera, fechaNacimiento=2000-07-07T07:07, codigoSeguro=PA006, estatura=2.01, peso=88.88, genero=M]
+2022-07-29 19:47:54.054  DEBUG DoctorRepositoryImpl:41 : Buscando doctor de cedula: 1895236548
+2022-07-29 19:47:54.054  DEBUG DoctorRepositoryImpl:49 : Doctor encontrado: Doctor [id=6, cedula=1895236548, nombre=Angelica, apellido=Toronto, fechaNacimiento=1976-04-30T19:48, numeroConsultorio=501, codigoSenescyt=PPP-555, genero=F]
+2022-07-29 19:47:54.054  DEBUG PacienteRepositoryImpl:46 : Buscando paciente de cedula: 1346798255
+2022-07-29 19:47:54.054  DEBUG PacienteRepositoryImpl:54 : Paciente encontrado: Paciente [id=5, cedula=1346798255, nombre=Jhon, apellido=Escala, fechaNacimiento=1996-10-02T02:22, codigoSeguro=PA005, estatura=1.76, peso=91.2, genero=M]
+2022-07-29 19:47:54.054  DEBUG CitaMedicaRepositoryImpl:25 : Cita Medica insertada: CitaMedica [id=3, numeroCita=003, fechaCita=2022-07-30T11:00, valorCita=5.5, lugarCita=Centro de Salud SJM, diagnostico=null, receta=null, fechaProximaCita=null]
+2022-07-29 19:47:54.054  DEBUG CitaMedicaRepositoryImpl:41 : Cita encontrada: CitaMedica [id=3, numeroCita=003, fechaCita=2022-07-30T11:00, valorCita=5.5, lugarCita=Centro de Salud SJM, diagnostico=null, receta=null, fechaProximaCita=null]
+2022-07-29 19:47:54.054  DEBUG CitaMedicaRepositoryImpl:31 : Cita Medica actualizada: CitaMedica [id=3, numeroCita=003, fechaCita=2022-07-30T11:00, valorCita=5.5, lugarCita=Centro de Salud SJM, diagnostico=Alergia, receta=Pastilla generica, fechaProximaCita=2022-08-15T11:15]
+2022-07-29 19:47:54.054  DEBUG PacienteRepositoryImpl:69 : Número de pacientes en la lista: 4
