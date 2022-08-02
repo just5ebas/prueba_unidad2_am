@@ -55,12 +55,11 @@ public class GestorCitaMedicaServiceImpl implements IGestorCitaMedicaService {
 
 	@Override
 	public List<PacienteSencillo> consultarPacientes(LocalDateTime fecha, String genero) {
-//		List<PacienteSencillo> listaConsulta = this.iPacienteService.buscarPorFechaGenero(fecha, genero);
-//
-//		listaConsulta.stream().forEach(p -> LOG.info("Paciente encontrado: " + p));
-//
-//		return listaConsulta;
-		return null;
+		List<PacienteSencillo> listaConsulta = this.iPacienteService.buscarPorFechaGenero(fecha, genero);
+
+		listaConsulta.stream().forEach(p -> LOG.info("Paciente encontrado: " + p));
+
+		return listaConsulta;
 	}
 
 }

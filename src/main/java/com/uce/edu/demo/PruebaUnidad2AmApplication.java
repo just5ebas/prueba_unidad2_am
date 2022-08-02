@@ -87,10 +87,10 @@ public class PruebaUnidad2AmApplication implements CommandLineRunner {
 //				"Centro de Salud SJM", d2.getCedula(), p1.getCedula());
 
 		// 4. ACTUALIZAR CITA MEDICA
-		this.iGestorCitaMedica.actualizarCita("001", "Covid", "Paracetamol", LocalDateTime.of(2022, 8, 15, 11, 15));
+//		this.iGestorCitaMedica.actualizarCita("001", "Covid", "Paracetamol", LocalDateTime.of(2022, 8, 15, 11, 15));
 
 		// 5. REGISTRO DE PACIENTES
-//		this.iGestorCitaMedica.consultarPacientes(LocalDateTime.of(1995, 1, 1, 1, 0), "M");
+		this.iGestorCitaMedica.consultarPacientes(LocalDateTime.of(1995, 1, 1, 1, 0), "M");
 
 	}
 
