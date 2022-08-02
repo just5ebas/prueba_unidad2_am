@@ -1,4 +1,4 @@
-package com.uce.edu.demo.repository;
+package com.uce.edu.demo.correccion.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,14 +11,14 @@ import javax.transaction.Transactional;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import com.uce.edu.demo.repository.modelo.Paciente;
-import com.uce.edu.demo.repository.modelo.PacienteSencillo;
+import com.uce.edu.demo.correccion.repository.modelo.Paciente;
+import com.uce.edu.demo.correccion.repository.modelo.PacienteSencillo;
 
 @Repository
 @Transactional
-public class PacienteRepositoryImpl implements IPacienteRepository {
+public class PacienteCRepositoryImpl implements IPacienteCRepository {
 
-	private static final Logger LOG = Logger.getLogger(PacienteRepositoryImpl.class);
+	private static final Logger LOG = Logger.getLogger(PacienteCRepositoryImpl.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -45,7 +45,7 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 		LOG.debug("Buscando paciente de cedula: " + cedula);
 
 		TypedQuery<Paciente> myQuery = this.entityManager
-				.createQuery("SELECT p FROM Paciente p WHERE p.cedula = :cedula", Paciente.class);
+				.createQuery("SELECT p FROM Paciente1 p WHERE p.cedula = :cedula", Paciente.class);
 		myQuery.setParameter("cedula", cedula);
 
 		Paciente p = myQuery.getSingleResult();
@@ -56,11 +56,11 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 	}
 
 	@Override
-	public List<PacienteSencillo> buscarPorFechaGenero(LocalDateTime fechaMinima, String genero) {
+	public List<PacienteSencillo> buscarPorFechaGenero(LocalDateTime fecha, String genero) {
 		TypedQuery<PacienteSencillo> myQuery = this.entityManager.createQuery(
-				"SELECT NEW com.uce.edu.demo.repository.modelo.PacienteSencillo(p.cedula, p.nombre, p.apellido, p.fechaNacimiento, p.genero) FROM Paciente p WHERE p.fechaNacimiento > :dato_fecha and p.genero = :dato_genero",
+				"SELECT NEW com.uce.edu.demo.correccion.repository.modelo.PacienteSencillo(p.cedula, p.nombre, p.fechaNacimiento, p.genero) FROM Paciente1 p WHERE p.fechaNacimiento > :dato_fecha and p.genero = :dato_genero",
 				PacienteSencillo.class);
-		myQuery.setParameter("dato_fecha", fechaMinima);
+		myQuery.setParameter("dato_fecha", fecha);
 		myQuery.setParameter("dato_genero", genero);
 
 		List<PacienteSencillo> lista = myQuery.getResultList();

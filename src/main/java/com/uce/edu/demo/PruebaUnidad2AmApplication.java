@@ -1,5 +1,6 @@
 package com.uce.edu.demo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.apache.log4j.Logger;
@@ -8,11 +9,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.repository.modelo.Doctor;
-import com.uce.edu.demo.repository.modelo.Paciente;
-import com.uce.edu.demo.service.IDoctorService;
-import com.uce.edu.demo.service.IGestorCitaMedica;
-import com.uce.edu.demo.service.IPacienteService;
+import com.uce.edu.demo.coreccion.service.IDoctorCService;
+import com.uce.edu.demo.coreccion.service.IGestorCitaMedicaService;
+import com.uce.edu.demo.coreccion.service.IPacienteCService;
+import com.uce.edu.demo.correccion.repository.modelo.Doctor;
+import com.uce.edu.demo.correccion.repository.modelo.Paciente;
 
 @SpringBootApplication
 public class PruebaUnidad2AmApplication implements CommandLineRunner {
@@ -20,13 +21,13 @@ public class PruebaUnidad2AmApplication implements CommandLineRunner {
 	private static final Logger LOG = Logger.getLogger(PruebaUnidad2AmApplication.class);
 
 	@Autowired
-	private IDoctorService iDoctorService;
+	private IDoctorCService iDoctorService;
 
 	@Autowired
-	private IPacienteService iPacienteService;
+	private IPacienteCService iPacienteService;
 
 	@Autowired
-	private IGestorCitaMedica iGestorCitaMedica;
+	private IGestorCitaMedicaService iGestorCitaMedica;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PruebaUnidad2AmApplication.class, args);
@@ -53,14 +54,18 @@ public class PruebaUnidad2AmApplication implements CommandLineRunner {
 		d2.setCodigoSenescyt("PPP-555");
 		d2.setGenero("F");
 
+		// 1. INSERTAR DOS DOCTORES
+//		this.iDoctorService.insertar(d1);
+//		this.iDoctorService.insertar(d2);
+
 		Paciente p1 = new Paciente();
 		p1.setCedula("1346798255");
 		p1.setNombre("Jhon");
 		p1.setApellido("Escala");
 		p1.setFechaNacimiento(LocalDateTime.of(1996, 10, 2, 2, 22));
 		p1.setCodigoSeguro("PA005");
-		p1.setEstatura(1.76f);
-		p1.setPeso(91.2f);
+		p1.setEstatura(1.76);
+		p1.setPeso(91.2);
 		p1.setGenero("M");
 
 		Paciente p2 = new Paciente();
@@ -69,28 +74,23 @@ public class PruebaUnidad2AmApplication implements CommandLineRunner {
 		p2.setApellido("Vera");
 		p2.setFechaNacimiento(LocalDateTime.of(2000, 7, 7, 7, 7));
 		p2.setCodigoSeguro("PA006");
-		p2.setEstatura(2.01f);
-		p2.setPeso(88.88f);
+		p2.setEstatura(2.01);
+		p2.setPeso(88.88);
 		p2.setGenero("M");
 
-		// 1. INSERTAR DOS DOCTORES
-		this.iDoctorService.insertar(d1);
-		this.iDoctorService.insertar(d2);
-
 		// 2. INSERTAR DOS PACIENTES
-		this.iPacienteService.insertar(p1);
-		this.iPacienteService.insertar(p2);
+//		this.iPacienteService.insertar(p1);
+//		this.iPacienteService.insertar(p2);
 
 		// 3. CREACION DE CITA MEDICA
-		this.iGestorCitaMedica.agendarCita("003", LocalDateTime.of(2022, 7, 30, 11, 0), 5.5f, "Centro de Salud SJM",
-				d2.getCedula(), p1.getCedula());
+//		this.iGestorCitaMedica.generarCita("001", LocalDateTime.of(2022, 7, 30, 11, 0), new BigDecimal(40),
+//				"Centro de Salud SJM", d2.getCedula(), p1.getCedula());
 
 		// 4. ACTUALIZAR CITA MEDICA
-		this.iGestorCitaMedica.actualizarCita("003", "Alergia", "Pastilla generica",
-				LocalDateTime.of(2022, 8, 15, 11, 15));
+		this.iGestorCitaMedica.actualizarCita("001", "Covid", "Paracetamol", LocalDateTime.of(2022, 8, 15, 11, 15));
 
 		// 5. REGISTRO DE PACIENTES
-		this.iGestorCitaMedica.consultarPacientes(LocalDateTime.of(1995, 1, 1, 1, 0), "M");
+//		this.iGestorCitaMedica.consultarPacientes(LocalDateTime.of(1995, 1, 1, 1, 0), "M");
 
 	}
 
